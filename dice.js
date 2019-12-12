@@ -3,25 +3,35 @@ class Dice{
   constructor(sides){
     this.sides = sides;
     this.roll = function(sides){
-      return Math.floor(Math.random() * this.sides) + 1;
+      console.log(Math.floor(Math.random() * this.sides) + 1);
     }
-    this.probability = function (sides, weights){
-        var num = Math.random(), s = 0, lastIndex = weights.length - 1;
 
-        for (var i = 0; i < lastIndex; ++i) {
-          s += weights[i];
-          if (num < s) {
-              return results[i];
-            }
+    this.probabilities = function () {
+      sides > 0;
+      var sum = 0;
+      if (arguments.length === 2){
+        this.probabilities = arguments[1];
+        let i = 0;
+        for (; i < probabilities.length; i++){
+          if (probabilities[i] < 1){
+            throw "Negative probabilities not allowed";
+          }
+          if (isNaN(probabilities[i]) === true){
+            throw "Only integers values allowed";
           }
 
-          return results[lastIndex];
-        }
+          sum = sum + arguments[i];
+
+    }
+  }
+
+  roll(){
+    if (this.sides > 0){
+      console.log(this.roll);
+    }
+  }
 
 }
-}
 
-var dice6 = new Dice(6, [1, 1, 1, 1, 1, 1]);
-
-var greeting = dice6.probability();
-console.log(greeting);
+var dice6 = new Dice(6);
+dice6.roll();
